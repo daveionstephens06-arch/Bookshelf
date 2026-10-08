@@ -1,0 +1,22 @@
+﻿@using Bookshelf.Models
+@model Book
+
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">
+            @Model.Title
+            @if (Model.IsRead)
+            {
+                <span class="badge bg-success">Read</span>
+            }
+        </h5>
+        <p class="card-text mb-0">
+            by @Model.Author
+        </p>
+        <p class="card-text text-muted mb-0">
+            @Model.Pages pages
+        </p>
+        <a class="btn btn-sm btn-outline-primary" asp-controller="Bookshelf" asp-action="Mark" asp-route-id="@Model.Id">Mark as read</a>
+        <a class="btn btn-sm btn-outline-secondary" asp-controller="Bookshelf" asp-action="MarkUnread" asp-route-id="@Model.Id">Mark as unread</a>
+    </div>
+</div>
